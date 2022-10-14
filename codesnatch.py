@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 import pytesseract
 import pyautogui
+import pyperclip
 import os
 
 from PIL import ImageGrab, ImageOps
@@ -87,13 +88,18 @@ def ocr_scan(x1,y1,x2,y2):
     text = text.strip()
     return text
 
-def validate_code(code):
-    # Check if Code is 23 Chars (Epicgames)
-    if len(code) == 23:
-        # RegEx Check to confirm it is Epic
-        if re.match("^.*(([\w\d]{5}-?){4}).*$",code):
-            print('EpicGames Code: ' + code)
-            return True
+def search_code(scan):
+    # Defines RegEx for Epic-Codes
+    regepic = re.compile("((\S{5}-){3})\S{5}")
+    try:
+        epic = regepic.search(scan).group()
+        # Checks and returns the Epic Code
+        if re.match('((\S{5}-){3})\S{5}',epic):
+            return epic
+        else:
+            return ''
+    except:
+        return ''
 
 def input_code(code, xt,yt,xr,yr,xc,yc):
     # Moves Mouse to the Textbox
@@ -101,7 +107,8 @@ def input_code(code, xt,yt,xr,yr,xc,yc):
     pyautogui.leftClick()
     time.sleep(0.1)
     # Types in the code
-    pyautogui.typewrite(code)
+    pyperclip.copy(code)
+    pyautogui.hotkey('ctrl', 'v')
     # Moves to Redeem Button
     pyautogui.moveTo(xr,yr)
     pyautogui.leftClick()
@@ -117,12 +124,14 @@ x1,y1,x2,y2,xt,yt,xr,yr,xc,yc = config()
 
 while True:
 
-    code = ocr_scan(x1,y1,x2,y2)
+    scanned = ocr_scan(x1,y1,x2,y2)
 
-    if len(code)>20:
-        print(code)
+    if len(scanned)>20:
+        print(scanned)
 
-    if validate_code(code) == True:
+    code = search_code(scanned)
+
+    if code != '':
         input_code(code, xt,yt,xr,yr,xc,yc)
         time.sleep(5)
 
