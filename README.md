@@ -17,7 +17,7 @@ This script helps to get rid of the typing problem!
 
 1. Clone or Download this Repo and put it in a folder wherever you want.
 2. Install Python 3 https://www.python.org/downloads/
-3. Install [Googles Tesseract OCR](https://github.com/tesseract-ocr/tesseract#installing-tesseract "Googles Tesseract OCR") or [for Windows](https://github.com/UB-Mannheim/tesseract/wiki "for Windows") and add it to your PATH
+3. For **Linux/Mac**, download [Googles Tesseract OCR](https://github.com/tesseract-ocr/tesseract#installing-tesseract "Googles Tesseract OCR") or **for Windows**, download the [prebuilt Windows binary](https://github.com/UB-Mannheim/tesseract/wiki) and install it to the default directory (C:\Program Files\Tesseract-OCR)
 4. Open CMD or a Terminal inside of the folder and write
 	`pip install -r requirements.txt`
 5. Now everything should be working and you can run it inside the Terminal with

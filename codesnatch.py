@@ -3,7 +3,7 @@ import numpy as np
 import pytesseract
 import pyautogui
 import pyperclip
-import os
+import os, sys
 
 from PIL import ImageGrab, ImageOps
 import time
@@ -72,6 +72,14 @@ def wait_for_esc():
     with keyboard.Listener(
             on_press=on_press) as listener:
         listener.join()
+
+# OS Check
+TESSERACT_DIR = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+
+if sys.platform == "linux" or sys.platform == "darwin":
+    pytesseract.pytesseract.tesseract_cmd = "tesseract"
+else:
+    pytesseract.pytesseract.tesseract_cmd = TESSERACT_DIR
 
 # Initializing OCR
 def ocr_scan(x1,y1,x2,y2):
