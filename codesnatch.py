@@ -3,7 +3,7 @@ import numpy as np
 import pytesseract
 import pyautogui
 import pyperclip
-import os
+import os, sys
 
 from PIL import ImageGrab, ImageOps
 import time
