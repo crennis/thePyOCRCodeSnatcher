@@ -26,7 +26,7 @@ This script helps to get rid of the typing problem!
 
 ### License
 
-Copyright © 2022 crennis <crennis@crennis.com>
+Copyright © 2022 crennis <contact@crennis.com>
 This work is free. You can redistribute it and/or modify it under the
 terms of the Do What The Fuck You Want To Public License, Version 2,
 as published by Sam Hocevar. See the COPYING file for more details.
@@ -37,3 +37,4 @@ as published by Sam Hocevar. See the COPYING file for more details.
 
 
 I can not guarantee for this code to work and i probably won't activle update or maintain it.
+For a more Windows friendly and more likely up to date version [look at iCallH4x Fork](https://github.com/iCallH4x/thePyOCRCodeSnatcher "look at iCallH4x Fork") of this script. 

@@ -2,6 +2,6 @@ opencv-python
 numpy
 pytesseract
 pyautogui
+pyperclip
 pillow
-re
 pynput
